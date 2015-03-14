@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_9" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+	<display-name>Struts Demo</display-name>
+
+    <!-- Spring -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext.xml</param-value>
+	</context-param>
+
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<servlet>
+	  <servlet-name>GetDepartNumberServlet</servlet-name>
+	  <servlet-class>edu.homework.servlet.GetDepartNumberServlet</servlet-class>
+	</servlet>
+	<servlet>
+	   <servlet-name>CheckUserNameServlet</servlet-name>
+	   <servlet-class>edu.homework.servlet.CheckUserNameServlet</servlet-class>
+	</servlet>
+	<servlet>
+	   <servlet-name>CheckRoleServlet</servlet-name>
+	   <servlet-class>edu.homework.servlet.CheckRoleServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	   <servlet-name>GetDepartNumberServlet</servlet-name>
+	   <url-pattern>/getdepartnumber.do</url-pattern>
+	
+	</servlet-mapping>
+	<servlet-mapping>
+	   <servlet-name>CheckUserNameServlet</servlet-name>
+	   <url-pattern>/checkusername.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+	   <servlet-name>CheckRoleServlet</servlet-name>
+	   <url-pattern>/checkrole.do</url-pattern>
+	</servlet-mapping>
+   <welcome-file-list>
+      <welcome-file>index.jsp</welcome-file>
+   </welcome-file-list>
+</web-app>
